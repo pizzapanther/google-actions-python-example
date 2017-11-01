@@ -1,0 +1,19 @@
+{
+  "actions": [
+    {
+      "name": "MAIN",
+      "intent": {
+        "name": "actions.intent.MAIN"
+      },
+      "fulfillment": {
+        "conversationName": "quote-app"
+      }
+    }
+  ],
+  "conversations": {
+    "quote-app": {
+      "name": "quote-app",
+      "url": "https://pallas.neutrondrive.com/quote-app"
+    }
+  }
+}
