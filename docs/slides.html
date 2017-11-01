@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>
-      Welcome - DigitCrafts
+      Google Actions with Python by Paul Bailey
     </title>
     <meta charset="utf-8">
     <link rel="shortcut icon" href="/static/favicon.ico">
@@ -37,7 +37,7 @@ h1 span.filename {
 
 .remark-slide-content {
   font-size: 28px;
-  padding: 1em 2em 1em 2em
+  padding: 1em 1em 1em 1em
 }
 
 .spaced li {
@@ -68,7 +68,7 @@ hr {
 
 
 .inverse {
-  background-size: 120px 50px;
+  background-size: 120px 120px;
   background-position: 97% 3%;
 }
 
@@ -112,16 +112,113 @@ hr {
     <textarea id="source">
 class: inverse, spaced
 layout: true
-background-image: url();
+background-image: url("icon.svg")
 
 ---
 
+class: middle
 
-class: center, middle
+# Google Actions with Python
 
-# Welcome to DigitalCrafts
+- These Slides: [bit.ly/py-google-actions](http://bit.ly/py-google-actions)
+- My Google Action: [Neutron Academy](https://www.neutron.academy/)
+- Paul Bailey: [twitter.com/pizzapanther](https://twitter.com/pizzapanther)
 
 ---
+
+# What is a Google Action?
+
+Actions on Google lets you extend the functionality of the Google Assistant with your own actions.
+
+- conversational interface
+- works with voice and text
+- works on
+    - voice-activated speakers
+    - Android phones
+    - iPhones
+    - Android TVs
+    - and more!
+
+---
+
+# Ways to Build Your App
+
+https://developers.google.com/actions/
+
+- Use a template (no coding required)
+- Use a tool:
+  - [DialogFlow](https://dialogflow.com/docs/integrations/google-assistant)
+  - [Converse](https://get.converse.ai/docs/google-actions)
+  - [PullString](https://www.pullstring.com/blog/pullstring-announces-support-for-actions-on-google?hsCtaTracking=2c9d2014-7829-4d37-9a6e-26ca844a5171%7Cf929e814-a0cb-4869-aaea-5408025029e0&__hstc=184034361.e41fcd15c37387327b67c2a2869bb15f.1474952963337.1489506642691.1489718912868.167&__hssc=184034361.1.1489784561986&__hsfp=976989674)
+  - [gupshup](https://www.gupshup.io/developer/googlehome)
+- Build it from Scratch!
+
+---
+
+# Technical Overview
+
+<table style="border-collapse: collapse; margin: 0 auto; height: 500px;">
+  <tr>
+    <td>
+      <img src="talk.gif" alt="talk to google" style="height: 130px;">
+    </td>
+    <td>
+      <pre style="font-size: 14px;">
+#1: OK Google
+"Talk to      =>
+MY APP"
+
+
+<= #4: Google
+speaks response
+
+
+#5: User
+     responds =>
+
+
+<= #8: Google
+speaks response
+      </pre>
+    </td>
+    <td>
+      <img src="google.gif" alt="google home" style="width: 220px;">
+    </td>
+    <td>
+      <pre style="font-size: 14px;">
+#2: New Intent =>
+(conversation id)
+
+
+
+<= #3: Respond
+
+
+#6 Response
+    Intent =>
+    
+    
+<= #7 Response
+      </pre>
+    </td>
+    <td>
+      <img src="cat.gif" alt="cat programming" style="height: 140px;">
+    </td>
+  </tr>
+</table>
+
+---
+
+# Building Your Action
+
+[Sample App](https://github.com/pizzapanther/google-actions-python-example)
+
+1. Create your project
+2. Upload your [action.json](https://github.com/pizzapanther/google-actions-python-example/blob/master/action.json)
+3. Create code to process intents.
+4. Enjoy fame and fortune!
+
+<iframe src="https://giphy.com/embed/m2knL5cKZZxMQ" width="240" height="220" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
 
     </textarea>
     <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
