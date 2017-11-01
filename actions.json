@@ -6,14 +6,15 @@
         "name": "actions.intent.MAIN"
       },
       "fulfillment": {
-        "conversationName": "quote-app"
+        "conversationName": "weather-app"
       }
     }
   ],
   "conversations": {
-    "quote-app": {
-      "name": "quote-app",
-      "url": "https://pallas.neutrondrive.com/quote-app"
+    "weather-app": {
+      "name": "weather-app",
+      "url": "https://pallas.neutrondrive.com/weather-app",
+      "fulfillmentApiVersion": 2
     }
   }
 }
