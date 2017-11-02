@@ -1,3 +1,5 @@
+cryptography
+pyjwt
 tornado
 requests
 

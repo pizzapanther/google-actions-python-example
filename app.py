@@ -7,9 +7,11 @@ import tornado.ioloop
 import tornado.log
 import tornado.web
 
+import jwt
 import requests
 
 API_KEY = os.environ.get('OPEN_WEATHER_MAP_KEY', '39898a022aa2873f702f847f4c2ecafb')
+PROJECT_ID = 'narf-ee29c'
 
 class WeatherHandler(tornado.web.RequestHandler):
   def start_conversation (self):
@@ -73,6 +75,12 @@ class WeatherHandler(tornado.web.RequestHandler):
       self.start_conversation()
       
   def post (self):
+    token = self.request.headers.get("Authorization")
+    jwt_data = jwt.decode(token, 'narf-ee29c', algorithms=['RS256'], verify=False)
+    if jwt_data['aud'] != PROJECT_ID:
+      self.set_status(401)
+      self.write('Token Mismatch')
+      
     data = json.loads(self.request.body.decode('utf-8'))
     intent = data['inputs'][0]['intent']
     print(intent)
