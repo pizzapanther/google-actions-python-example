@@ -7,6 +7,10 @@ import tornado.ioloop
 import tornado.log
 import tornado.web
 
+import requests
+
+API_KEY = os.environ.get('OPEN_WEATHER_MAP_KEY', '39898a022aa2873f702f847f4c2ecafb')
+
 class WeatherHandler(tornado.web.RequestHandler):
   def start_conversation (self):
     response = {
@@ -33,7 +37,27 @@ class WeatherHandler(tornado.web.RequestHandler):
     self.write(response)
     
   def get_weather (self, city):
-    response = {}
+    api_response = requests.get(
+      'http://api.openweathermap.org/data/2.5/weather',
+      params={'q': city, 'APPID': API_KEY}
+    )
+    data = api_response.json()
+    temp = round(1.8 * (data['main']['temp'] - 273) + 32)
+    
+    response = {
+      'expectUserResponse': False,
+      'finalResponse': {
+        'richResponse': {
+          'items': [
+            {
+              'simpleResponse': {
+                'ssml': '<speak>The temperature in {} is {} degrees.</speak>'.format(city, temp)
+              }
+            }
+          ]
+        }
+      }
+    }
     
     self.set_header('Google-Assistant-API-Version', 'v2')
     self.write(response)
@@ -48,14 +72,15 @@ class WeatherHandler(tornado.web.RequestHandler):
       
   def post (self):
     data = json.loads(self.request.body.decode('utf-8'))
-    print(data['conversation']['type'])
+    intent = data['inputs'][0]['intent']
+    print(intent)
     print(data['conversation']['conversationId'])
     
-    if data['conversation']['type'] == 'NEW':
+    if intent == 'actions.intent.MAIN':
       self.start_conversation()
       
     else:
-      city = data['inputs'][0]['arguments'][0]['textValue'].lower()
+      city = data['inputs'][0]['arguments'][0]['textValue']
       self.get_weather(city)
       
 def make_app():
