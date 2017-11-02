@@ -1,0 +1,21 @@
+{
+  "expectedInputs": [
+    {
+      "possibleIntents": {
+        "intent": "actions.intent.TEXT"
+      },
+      "inputPrompt": {
+        "richInitialPrompt": {
+          "items": [
+            {
+              "simpleResponse": {
+                "ssml": "<speak>What city would you like the weather for?</speak>"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "expectUserResponse": true
+}
