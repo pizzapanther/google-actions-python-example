@@ -33,8 +33,9 @@ class WeatherHandler(tornado.web.RequestHandler):
       ]
     }
     
+    self.set_header("Content-Type", 'application/json')
     self.set_header('Google-Assistant-API-Version', 'v2')
-    self.write(response)
+    self.write(json.dumps(response, indent=2))
     
   def get_weather (self, city):
     api_response = requests.get(
@@ -59,8 +60,9 @@ class WeatherHandler(tornado.web.RequestHandler):
       }
     }
     
+    self.set_header("Content-Type", 'application/json')
     self.set_header('Google-Assistant-API-Version', 'v2')
-    self.write(response)
+    self.write(json.dumps(response, indent=2))
     
   def get (self):
     city = self.get_query_argument('city', '')
