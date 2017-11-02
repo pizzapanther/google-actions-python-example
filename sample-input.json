@@ -1,0 +1,44 @@
+{
+  "isInSandbox": true,
+  "conversation": {
+    "type": "NEW",
+    "conversationId": "1509568822990"
+  },
+  "availableSurfaces": [
+    {
+      "capabilities": [
+        {
+          "name": "actions.capability.AUDIO_OUTPUT"
+        },
+        {
+          "name": "actions.capability.SCREEN_OUTPUT"
+        }
+      ]
+    }
+  ],
+  "inputs": [
+    {
+      "intent": "actions.intent.MAIN",
+      "rawInputs": [
+        {
+          "query": "Talk to Mr Weather",
+          "inputType": "KEYBOARD"
+        }
+      ]
+    }
+  ],
+  "surface": {
+    "capabilities": [
+      {
+        "name": "actions.capability.AUDIO_OUTPUT"
+      },
+      {
+        "name": "actions.capability.SCREEN_OUTPUT"
+      }
+    ]
+  },
+  "user": {
+    "userId": "ABwppHEquJp4hQkVEpYu6d17jpNpfdwqrzpA20cp2Ac1ylb1hA5_AkTmYr2J0Qi25Qh74tqoGLl8xg",
+    "locale": "en-US"
+  }
+}
