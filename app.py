@@ -76,7 +76,7 @@ class WeatherHandler(tornado.web.RequestHandler):
       
   def post (self):
     token = self.request.headers.get("Authorization")
-    jwt_data = jwt.decode(token, 'narf-ee29c', algorithms=['RS256'], verify=False)
+    jwt_data = jwt.decode(token, verify=False)
     if jwt_data['aud'] != PROJECT_ID:
       self.set_status(401)
       self.write('Token Mismatch')
