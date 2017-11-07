@@ -11,7 +11,7 @@ import jwt
 import requests
 
 API_KEY = os.environ.get('OPEN_WEATHER_MAP_KEY', '39898a022aa2873f702f847f4c2ecafb')
-PROJECT_ID = 'narf-ee29c'
+PROJECT_ID = os.environ.get('PROJECT_ID', 'mrs-weather')
 
 class WeatherHandler(tornado.web.RequestHandler):
   def start_conversation (self):
