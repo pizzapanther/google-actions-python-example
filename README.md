@@ -4,10 +4,10 @@
 ## Usage
 
 ```
-pip3 install -r requirements.txt
+pipenv install
 
 export OPEN_WEATHER_MAP_KEY=abcdedg
 export PROJECT_ID=google-project-id
 
-python3 app.py
+pipenv run python app.py
 ```
