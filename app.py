@@ -7,6 +7,9 @@ import tornado.ioloop
 import tornado.log
 import tornado.web
 
+from google.oauth2 import id_token
+from google.auth.transport import requests as google_requests
+
 import jwt
 import requests
 
@@ -97,6 +100,15 @@ class WeatherHandler(tornado.web.RequestHandler):
     if jwt_data['aud'] != PROJECT_ID:
       self.set_status(401)
       self.write('Token Mismatch')
+
+    else:
+      request = google_requests.Request()
+      try:
+        # Makes external request, remove if not needed to speed things up
+        id_info = id_token.verify_oauth2_token(token, request, PROJECT_ID)
+      except:
+        self.set_status(401)
+        self.write('Token Mismatch')
 
     data = json.loads(self.request.body.decode('utf-8'))
     intent = data['inputs'][0]['intent']

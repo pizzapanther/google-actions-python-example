@@ -8,6 +8,7 @@ cryptography = "*"
 tornado = "*"
 requests = "*"
 PyJWT = "*"
+google-auth = "*"
 
 [dev-packages]
 
