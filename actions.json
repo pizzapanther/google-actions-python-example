@@ -13,7 +13,7 @@
   "conversations": {
     "weather-app": {
       "name": "weather-app",
-      "url": "https://f56e6e9c.ngrok.io/weather-app",
+      "url": "https://weather-panther.ngrok.io/weather-app",
       "fulfillmentApiVersion": 2
     }
   }
