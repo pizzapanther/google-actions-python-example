@@ -5,9 +5,10 @@
 
 ```
 pipenv install
+pipenv shell
 
 export OPEN_WEATHER_MAP_KEY=abcdedg
 export PROJECT_ID=google-project-id
 
-pipenv run python app.py
+python app.py
 ```
